@@ -17,6 +17,8 @@ Vue.component('free_videos', {
     data(){
         return {
 
+            free_videos:[]
+
 
 
         }
@@ -25,6 +27,15 @@ Vue.component('free_videos', {
     },
     methods: {
 
+        get_free_video: function(){
+            const vm = this;
+            var data_sent = { "member_id" : 12 };
+            axios.post('http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/get_user_videos' , JSON.stringify(data_sent)).then((response) => {
+                this.free_videos    = response.data;
+            }).catch( error => { console.log(error);});
+
+        }
+
     },
     mounted(){
 
@@ -32,6 +43,14 @@ Vue.component('free_videos', {
             visible: 3,
             itemMargin: 20
         });
+
+    },
+    created(){
+
+        this.get_free_video();
+      /*  let recaptchaScript = document.createElement('script')
+        recaptchaScript.setAttribute('src', 'js/dashboard.js')
+        document.head.appendChild(recaptchaScript)*/
 
     }
 
