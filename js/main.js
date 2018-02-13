@@ -13,12 +13,17 @@ const getHeaders = {
 
 Vue.component('free_videos', {
     template: '#free_videos' ,
+    props:['active'],
     data(){
         return {
 
 
+
         }
 
+
+    },
+    methods: {
 
     },
     mounted(){
@@ -39,11 +44,7 @@ Vue.component('paid_videos', {
 
         return {
 
-            number_of_distributors:0,
-            number_of_orders:0,
-            number_of_sims:0,
-            number_of_commissions:0,
-            last_10_orders:[]
+
 
         }
 
@@ -57,24 +58,6 @@ Vue.component('paid_videos', {
     },
     methods:{
 
-        get_dashboard_data: function(){
-            const vm = this;
-            axios.get(urlBase + 'dashboardStats',getHeaders).then(function (response) {
-                vm.number_of_distributors = response.data.data.distributors;
-                vm.number_of_orders       = response.data.data.orders;
-                vm.number_of_sims         = response.data.data.sims;
-                vm.last_10_orders         = response.data.data.last_10_orders;
-
-            });
-        },
-
-    },
-    created(){
-
-        this.get_dashboard_data();
-        let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', 'js/dashboard.js')
-        document.head.appendChild(recaptchaScript)
 
     }
 
@@ -145,9 +128,6 @@ var app = new Vue({
     router ,
     data: {
         mvno: localStorage.mvno,
-
-    },
-    created(){
 
     },
     methods:{
