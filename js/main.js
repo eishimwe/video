@@ -30,10 +30,14 @@ Vue.component('free_videos', {
             axios.post('http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/get_user_videos' , JSON.stringify(data_sent)).then((response) => {
                 this.free_videos    = response.data;
 
+                jQuery('.crsl-items').removeClass('hidden');
+
                 jQuery('.crsl-items').carousels({
                     visible: 3,
                     itemMargin: 20
                 });
+
+
 
 
             }).catch( error => { console.log(error);});
