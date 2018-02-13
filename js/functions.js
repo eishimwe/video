@@ -21,22 +21,11 @@ $(window).bind("load", function() {
 });
 jQuery(document).ready(function() {
     "use strict";
-    jQuery('.crsl-items').carousels({
+    /*jQuery('.crsl-items').carousels({
         visible: 3,
         itemMargin: 20
-    });
-    jQuery('.crsl-items1').carousels({
-        visible: 2,
-        itemMargin: 20
-    });
-    jQuery('.crsl-items2').carousels({
-        visible: 2,
-        itemMargin: 20
-    });
-    jQuery('.crsl-items3').carousels({
-        visible: 1,
-        itemMargin: 20
-    });
+    });*/
+
 });
 
 jQuery(document).ready(function() {
