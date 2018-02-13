@@ -23,7 +23,10 @@ Vue.component('free_videos', {
     },
     mounted(){
 
-
+        jQuery('.crsl-items').carousels({
+            visible: 3,
+            itemMargin: 20
+        });
 
     }
 
@@ -44,6 +47,13 @@ Vue.component('paid_videos', {
 
         }
 
+    },
+    mounted: function() {
+
+        jQuery('.crsl-items').carousels({
+            visible: 3,
+            itemMargin: 20
+        });
     },
     methods:{
 
