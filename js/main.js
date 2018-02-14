@@ -33,15 +33,12 @@ Vue.component('free_videos', {
             axios.post('http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/get_user_videos' , JSON.stringify(data_sent)).then((response) => {
 
 
-
-
-
                 for (var i = 0 ; i < response.data.length ; i++){
 
                     html += "<div class='crsl-item'> ";
                     html += "<div class='videobox2'>";
                     html += "<figure>";
-                    html += "<a href='#/profile'>";
+                    html += "<a href='#/profile:1'>";
                     html += "<img src='images/img14.jpg' class='img-responsive hovereffect' alt='' />";
                     html += "</a>";
                     html += "<div class='vidopts'>";
@@ -55,9 +52,7 @@ Vue.component('free_videos', {
                     html += "<h4><a href='#/profile'>" + response.data[i].videos_title + "</a></h4>";
                     html +="</div>";
                     html += "</div>";
-
                     console.log(response.data[i]);
-
 
                 }
 
@@ -168,7 +163,7 @@ const profile_video_template = { template: '<profile_video></profile_video>' }
 
 const routes = [
     { path: '/paid', component: paid_video_template},
-    { path: '/profile', component: profile_video_template},
+    { path: '/profile:id', component: profile_video_template,props:true},
     { path: '/', component: free_video_template }
 ];
 
