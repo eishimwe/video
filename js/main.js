@@ -17,7 +17,8 @@ Vue.component('free_videos', {
     data(){
         return {
 
-            free_videos:[]
+            free_videos:[],
+            testTest:'sdsd'
 
         }
 
@@ -27,10 +28,41 @@ Vue.component('free_videos', {
         get_free_video: function(){
             const vm = this;
             var data_sent = { "member_id" : 12 };
-            axios.post('http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/get_user_videos' , JSON.stringify(data_sent)).then((response) => {
-                this.free_videos    = response.data;
 
-                jQuery('.crsl-items').removeClass('hidden');
+            var html = "";
+            axios.post('http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/get_user_videos' , JSON.stringify(data_sent)).then((response) => {
+
+
+
+
+
+                for (var i = 0 ; i < response.data.length ; i++){
+
+                    html += "<div class='crsl-item'> ";
+                    html += "<div class='videobox2'>";
+                    html += "<figure>";
+                    html += "<a href='#/profile'>";
+                    html += "<img src='images/img14.jpg' class='img-responsive hovereffect' alt='' />";
+                    html += "</a>";
+                    html += "<div class='vidopts'>";
+                    html += "<ul>";
+                    html += "<li><i class='fa fa-heart'></i>1</li>";
+                    html += "<li><i class='fa fa-clock-o'></i>" + response.data[i].date_created + "</li>";
+                    html += "</ul>";
+                    html += "<div class='clearfix'></div>";
+                    html += "</div>";
+                    html += "</figure>";
+                    html += "<h4><a href='#/profile'>" + response.data[i].videos_title + "</a></h4>";
+                    html +="</div>";
+                    html += "</div>";
+
+                    console.log(response.data[i]);
+
+
+                }
+
+
+                jQuery('.crsl-items .crsl-wrap').html(html);
 
                 jQuery('.crsl-items').carousels({
                     visible: 3,
@@ -38,10 +70,7 @@ Vue.component('free_videos', {
                 });
 
 
-
-
             }).catch( error => { console.log(error);});
-
 
 
         }
@@ -49,13 +78,16 @@ Vue.component('free_videos', {
     },
     mounted(){
 
-
         this.get_free_video();
 
 
 
     },
     created(){
+
+
+
+
 
 
     }
