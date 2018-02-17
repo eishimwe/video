@@ -13,12 +13,10 @@ const getHeaders = {
 
 Vue.component('free_videos', {
     template: '#free_videos' ,
-    props:['active'],
     data(){
         return {
 
-            free_videos:[],
-            testTest:'sdsd'
+
 
         }
 
@@ -38,7 +36,7 @@ Vue.component('free_videos', {
                     html += "<div class='crsl-item'> ";
                     html += "<div class='videobox2'>";
                     html += "<figure>";
-                    html += "<a href='#/profile:1'>";
+                    html += "<a href='#/profile/" + response.data[i].videos_id + "'>";
                     html += "<img src='images/img14.jpg' class='img-responsive hovereffect' alt='' />";
                     html += "</a>";
                     html += "<div class='vidopts'>";
@@ -133,24 +131,10 @@ Vue.component('profile_video', {
     },
     methods:{
 
-        get_dashboard_data: function(){
-            const vm = this;
-            axios.get(urlBase + 'dashboardStats',getHeaders).then(function (response) {
-                vm.number_of_distributors = response.data.data.distributors;
-                vm.number_of_orders       = response.data.data.orders;
-                vm.number_of_sims         = response.data.data.sims;
-                vm.last_10_orders         = response.data.data.last_10_orders;
-
-            });
-        },
 
     },
     created(){
 
-        this.get_dashboard_data();
-        let recaptchaScript = document.createElement('script')
-        recaptchaScript.setAttribute('src', 'js/dashboard.js')
-        document.head.appendChild(recaptchaScript)
 
     }
 
@@ -163,7 +147,7 @@ const profile_video_template = { template: '<profile_video></profile_video>' }
 
 const routes = [
     { path: '/paid', component: paid_video_template},
-    { path: '/profile:id', component: profile_video_template,props:true},
+    { path: '/profile/:video_id', component: profile_video_template,props:true},
     { path: '/', component: free_video_template }
 ];
 
