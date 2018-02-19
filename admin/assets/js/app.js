@@ -350,11 +350,7 @@
         /*----------- END autosize CODE -------------------------*/
 
         /*----------- BEGIN inputlimiter CODE -------------------------*/
-        $('#limiter').inputlimiter({
-            limit: 140,
-            remText: 'You only have %n character%s remaining...',
-            limitText: 'You\'re allowed to input %n character%s into this field.'
-        });
+
         /*----------- END inputlimiter CODE -------------------------*/
 
         /*----------- BEGIN tagsInput CODE -------------------------*/
