@@ -347,23 +347,6 @@
         if ($('#autosize').length) {
             $('#autosize').autosize();
         }
-        /*----------- END autosize CODE -------------------------*/
-
-        /*----------- BEGIN inputlimiter CODE -------------------------*/
-
-        /*----------- END inputlimiter CODE -------------------------*/
-
-        /*----------- BEGIN tagsInput CODE -------------------------*/
-        $('#tags').tagsInput();
-        /*----------- END tagsInput CODE -------------------------*/
-
-        /*----------- BEGIN chosen CODE -------------------------*/
-
-        $(".chzn-select").chosen();
-        $(".chzn-select-deselect").chosen({
-            allow_single_deselect: true
-        });
-        /*----------- END chosen CODE -------------------------*/
 
         /*----------- BEGIN spinner CODE -------------------------*/
         //     DEPRECATED
