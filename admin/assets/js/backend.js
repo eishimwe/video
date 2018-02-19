@@ -55,7 +55,7 @@ $("#submitvideo").submit(function(e) {
 
             HoldOn.open({
                 theme:"sk-bounce",//If not given or inexistent theme throws default theme sk-rect
-                message: "<h4> Downloading ......</h4>",
+                message: "<h4> Uploading video ......</h4>",
                 content:"Your HTML Content", // If theme is set to "custom", this property is available
                                              // this will replace the theme by something customized.
                 backgroundColor:"blue",//Change the background color of holdon with javascript
