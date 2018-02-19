@@ -2,18 +2,17 @@
 
 $(document).ready(function(){
 
+    var data_sent = "{ 'member_id' : 12 }";
+    //data_sent = JSON.stringify(data_sent);
+
 
     var oTable     = $('#videoDatatable').DataTable({
-        "serverSide": true,
         "dom": 'T<"clear">lfrtip',
         "order" :[[0,"desc"]],
         "ajax": {
             "url": "http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/get_user_videos",
             "type": "POST",
-            "contentType": "application/json",
-            "data": {
-                "member_id": 12
-            }
+            "data": data_sent
         },
         "columns": [
             {data: 'id', name: 'id'},
