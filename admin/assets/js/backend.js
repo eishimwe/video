@@ -36,6 +36,28 @@ $(document).ready(function(){
     });
 
 
-})
+});
+
+
+
+$("#submitvideo").submit(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    console.log(formData);
+
+    $.ajax({
+        url: 'http://ec2-52-200-186-135.compute-1.amazonaws.com/api_twominutes/index.php/api/upload_video/',
+        type: 'POST',
+        data: formData,
+        success: function (data) {
+            alert(data)
+        },
+        cache: false,
+        contentType: false,
+        processData: false
+    });
+});
+
 
 
