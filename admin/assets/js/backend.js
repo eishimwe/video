@@ -42,9 +42,12 @@ $(document).ready(function(){
 
 
 
-$("#submitvideo").submit(function(e) {
-    e.preventDefault();
-    var formData = new FormData(this);
+$("#submitvideo").on("click",function(e) {
+    //e.preventDefault();
+
+    var form = document.forms.namedItem("submitvideoform");
+    var formData = new FormData(form);
+
 
 
     $.ajax({
@@ -66,6 +69,7 @@ $("#submitvideo").submit(function(e) {
         },
         success: function (data) {
             HoldOn.close();
+            window.location.href = 'backend.html'
         },
         cache: false,
         contentType: false,
